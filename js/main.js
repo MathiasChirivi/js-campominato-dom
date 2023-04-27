@@ -8,16 +8,25 @@
 const container = document.getElementById("containerMain");
 const btnstart = document.getElementById("start");
 const livello = document.getElementById("selectDifficulty");
+const bombNumbers = [];
+let point = 0;
 
+for (let i = 0; i <= 16; i++) {
+    let number = Math.floor(Math.random() * 100 + 1);
+    if (!bombNumbers.includes(number)) {
+        bombNumbers.push(number);
+    }
+    console.log(number);
+}
 
-btnstart.addEventListener("click", function(){
+btnstart.addEventListener("click", function(){  
+
     var selezionaLivello = livello.value; 
     console.log("Il livello scelto è", selezionaLivello);
 
     container.innerHTML = '';
     
     if (livello.value == "hard") {
-        
         for (let i = 1; i <= 100; i++) {
             
             //creamo un quadrato contenitore
@@ -26,13 +35,22 @@ btnstart.addEventListener("click", function(){
             squareDiv.innerHTML = i;
             
             squareDiv.addEventListener(`click`, function(){
-                this.classList.toggle("clicked");
-                console.log(`Hai appena cliccato il : ${i}`)
+                if(bombNumbers.includes(i)){
+                    this.classList.add("lose");
+                    alert("Hai perso");
+                    let risultato = (`Mi dispiace hai perso , il risultato è : ${point} `);
+                    document.getElementById("risultato").innerText = risultato;
+                } else {
+                    point++;
+                    this.classList.toggle("clicked");
+                    console.log(`Hai appena cliccato il : ${i}`)
+                }
+
             })
             container.appendChild(squareDiv);
         }
 
-} else if (livello.value == "normal") {
+}/* else if (livello.value == "normal") {
 
         for (let i = 1; i <= 81; i++) {
             
@@ -62,7 +80,7 @@ btnstart.addEventListener("click", function(){
             })
             container.appendChild(squareDiv);
         }
-}
+}*/
 });
 
 

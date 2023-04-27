@@ -65,7 +65,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(154, 54, 54);
+    background-color: rgb(255, 255, 255);
+    color: black;
     width: calc(100%/10);
     height: calc(100%/10);
     border: 1px solid black;
@@ -97,4 +98,8 @@ main{
 .clicked{
     background-color: yellow;
     cursor: pointer;
+}
+
+.lose{
+    background-color: red;
 }
