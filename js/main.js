@@ -11,13 +11,16 @@ const livello = document.getElementById("selectDifficulty");
 const bombNumbers = [];
 let point = 0;
 
-for (let i = 0; i <= 16; i++) {
-    let number = Math.floor(Math.random() * 100 + 1);
+
+function random(min, max) {
+    for (let i = 0; i <= 16; i++) {
+    let number = Math.floor(Math.random() * (max - min + 1)) + min;
     if (!bombNumbers.includes(number)) {
         bombNumbers.push(number);
     }
     console.log(number);
 }
+  }
 
 btnstart.addEventListener("click", function(){  
 
@@ -25,8 +28,10 @@ btnstart.addEventListener("click", function(){
     console.log("Il livello scelto è", selezionaLivello);
 
     container.innerHTML = '';
+    risultato.innerHTML = '';
     
     if (livello.value == "hard") {
+        random(1, 100);
         for (let i = 1; i <= 100; i++) {
             
             //creamo un quadrato contenitore
@@ -50,23 +55,32 @@ btnstart.addEventListener("click", function(){
             container.appendChild(squareDiv);
         }
 
-}/* else if (livello.value == "normal") {
-
-        for (let i = 1; i <= 81; i++) {
-            
-            //creamo un quadrato contenitore
-            const squareDiv = document.createElement("div");
-            squareDiv.classList.add("squareNormal");
-            squareDiv.innerHTML = i;
-            
-            squareDiv.addEventListener(`click`, function(){
-                this.classList.toggle("clicked");
-                console.log(`Hai appena cliccato il : ${i}`)
+}else if (livello.value == "normal") {
+    random(1, 81);
+    for (let i = 1; i <= 81; i++) {
+        
+        //creamo un quadrato contenitore
+        const squareDiv = document.createElement("div");
+        squareDiv.classList.add("squareNormal");
+        squareDiv.innerHTML = i;
+        
+        squareDiv.addEventListener(`click`, function(){
+                if(bombNumbers.includes(i)){
+                    this.classList.add("lose");
+                    alert("Hai perso");
+                    let risultato = (`Mi dispiace hai perso , il risultato è : ${point} `);
+                    document.getElementById("risultato").innerText = risultato;
+                } else {
+                    point++;
+                    this.classList.toggle("clicked");
+                    console.log(`Hai appena cliccato il : ${i}`)
+                }
             })
             container.appendChild(squareDiv);
         }
   
 } else {
+    random(1, 49);
         for (let i = 1; i <= 49; i++) {
                 
             //creamo un quadrato contenitore
@@ -75,12 +89,20 @@ btnstart.addEventListener("click", function(){
             squareDiv.innerHTML = i;
             
             squareDiv.addEventListener(`click`, function(){
-                this.classList.toggle("clicked");
-                console.log(`Hai appena cliccato il : ${i}`)
+                if(bombNumbers.includes(i)){
+                    this.classList.add("lose");
+                    alert("Hai perso");
+                    let risultato = (`Mi dispiace hai perso , il risultato è : ${point} `);
+                    document.getElementById("risultato").innerText = risultato;
+                } else {
+                    point++;
+                    this.classList.toggle("clicked");
+                    console.log(`Hai appena cliccato il : ${i}`)
+                }
             })
             container.appendChild(squareDiv);
         }
-}*/
+}
 });
 
 
