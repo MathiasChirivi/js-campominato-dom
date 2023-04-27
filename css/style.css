@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.containerHead{
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+}
+
+.imgTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgTitle img {
+    width: 50px;
+}
+
+.play{
+    width: 80px;
+    height: 20px;
+    cursor: pointer;
+    border: 0px solid black;
+    background-color: greenyellow;
+    color: white;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #083b4c;
+}
+
+#containerMain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    margin: 20px;
+    border: 2px solid white;
+}
+
+.square{
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.squareHard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 54, 54);
+    width: calc(100%/10);
+    height: calc(100%/10);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.squareNormal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 54, 54);
+    width: calc(100%/9);
+    height: calc(100%/9);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.squareEasy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 54, 54);
+    width: calc(100%/7);
+    height: calc(100%/7);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.clicked{
+    background-color: yellow;
+    cursor: pointer;
+}
