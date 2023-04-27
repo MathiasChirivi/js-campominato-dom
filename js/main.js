@@ -13,8 +13,8 @@ let point = 0;
 
 
 function random(min, max) {
-    for (let i = 0; i <= 16; i++) {
-    let number = (Math.floor(Math.random() * (max - min)) + min);
+    for (let i = 0; i < 16; i++) {
+    let number = Math.floor(Math.random() * (max - min) + min);
     if (!bombNumbers.includes(number)) {
         bombNumbers.push(number);
     }
@@ -47,10 +47,14 @@ btnstart.addEventListener("click", function(){
                     alert("Hai perso");
                     let risultato = (`Mi dispiace hai perso , il risultato è : ${point} `);
                     document.getElementById("risultato").innerText = risultato;
+                    bombNumbers.style.backgroundColor = "red";
                 } else {
                     point++;
                     this.classList.toggle("clicked");
                     console.log(`Hai appena cliccato il : ${i}`)
+                }
+                if (point == (squareDiv - 16)){
+                    alert("HAI VINTO COMPLIMENTI")
                 }
 
             })
@@ -77,6 +81,9 @@ btnstart.addEventListener("click", function(){
                     this.classList.toggle("clicked");
                     console.log(`Hai appena cliccato il : ${i}`)
                 }
+                if (point == (squareDiv - 16)){
+                    alert("HAI VINTO COMPLIMENTI")
+                }
             })
             container.appendChild(squareDiv);
         }
@@ -100,6 +107,9 @@ btnstart.addEventListener("click", function(){
                     point++;
                     this.classList.toggle("clicked");
                     console.log(`Hai appena cliccato il : ${i}`)
+                }
+                if (point == (squareDiv - 16)){
+                    alert("HAI VINTO COMPLIMENTI")
                 }
             })
             container.appendChild(squareDiv);

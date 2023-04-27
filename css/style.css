@@ -77,7 +77,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(154, 54, 54);
+    background-color: rgb(255, 255, 255);
+    color: black;
     width: calc(100%/9);
     height: calc(100%/9);
     border: 1px solid black;
@@ -88,7 +89,8 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(154, 54, 54);
+    background-color: rgb(255, 255, 255);
+    color: black;
     width: calc(100%/7);
     height: calc(100%/7);
     border: 1px solid black;
@@ -101,5 +103,10 @@ main{
 }
 
 .lose{
+    background-color: red;
+}
+
+.show{
+    opacity: 1;
     background-color: red;
 }
