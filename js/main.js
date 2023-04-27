@@ -29,6 +29,7 @@ btnstart.addEventListener("click", function(){
 
     container.innerHTML = '';
     risultato.innerHTML = '';
+    point = 0;
     
     if (livello.value == "hard") {
         random(1, 100);
