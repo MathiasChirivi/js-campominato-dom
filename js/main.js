@@ -8,13 +8,13 @@
 const container = document.getElementById("containerMain");
 const btnstart = document.getElementById("start");
 const livello = document.getElementById("selectDifficulty");
-const bombNumbers = [];
+let bombNumbers = [];
 let point = 0;
 
 
 function random(min, max) {
     for (let i = 0; i <= 16; i++) {
-    let number = Math.floor(Math.random() * (max - min + 1)) + min;
+    let number = (Math.floor(Math.random() * (max - min)) + min);
     if (!bombNumbers.includes(number)) {
         bombNumbers.push(number);
     }
@@ -30,6 +30,7 @@ btnstart.addEventListener("click", function(){
     container.innerHTML = '';
     risultato.innerHTML = '';
     point = 0;
+    bombNumbers = [];
     
     if (livello.value == "hard") {
         random(1, 100);
